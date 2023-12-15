@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b78525j8tuxao"]
+
+[ext_resource type="Script" path="res://rigid_body_2d.gd" id="1_x76xl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fd3a1"]
+radius = 20.0
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_7vbt2"]
+properties/0/path = NodePath(".:position_server")
+properties/0/spawn = true
+properties/0/replication_mode = 2
+
+[node name="RigidBody2D" type="RigidBody2D"]
+script = ExtResource("1_x76xl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fd3a1")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_interval = 0.1
+replication_config = SubResource("SceneReplicationConfig_7vbt2")
+visibility_update_mode = 1
