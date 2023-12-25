@@ -10,20 +10,20 @@ config_version=5
 
 [application]
 
-config/name="Multiplayer 2"
-run/main_scene="res://main.tscn"
+config/name="Multiplayer World"
+run/main_scene="res://world.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
-
-[autoload]
-
-Multiplayer="*res://Multiplayer.gd"
 
 [display]
 
 window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_width"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gdworld/plugin.cfg")
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
